@@ -1,98 +1,95 @@
-import { Link } from "react-router-dom";
-
-import {
-  useContext,
-} from "react";
-
 import "./Cart.css";
 
-import {
-  CartContext,
-} from "../../context/CartContext";
+import { useContext } from "react";
+
+import { CartContext }
+from "../../context/CartContext";
+
+import { useNavigate }
+from "react-router-dom";
 
 function Cart() {
 
   const {
     cartItems,
-    increaseQuantity,
-    decreaseQuantity,
     removeFromCart,
+    increaseQty,
+    decreaseQty,
     clearCart,
-  } =
-    useContext(CartContext);
+  } = useContext(CartContext);
 
-  // TOTAL PRICE
+  const navigate =
+  useNavigate();
 
-  const totalPrice =
-    cartItems.reduce(
-      (total, item) =>
-        total +
-        item.price *
-          item.quantity,
-      0
-    );
-    
+  // TOTAL
+
+  const total =
+  cartItems.reduce(
+    (acc, item) =>
+      acc + item.price * item.quantity,
+    0
+  );
+
   return (
 
     <div className="cart-page">
 
-      <h3>
-        🛒 Shopping Cart
-      </h3>
+      <h1 className="cart-title">
+        Shopping Cart
+      </h1>
 
       {cartItems.length === 0 ? (
 
-        <h5>
-          Your Cart Is Empty
-        </h5>
+        <h2 className="empty-cart">
+          🛒 Your Cart Is Empty
+        </h2>
 
       ) : (
 
-        <>
+        <div className="cart-container">
 
-          <div className="cart-container">
+          {cartItems.map((item) => (
 
-            {cartItems.map((item) => (
+            <div
+              className="cart-card"
+              key={item.id}
+            >
 
-              <div
-                className="cart-card"
-                key={item.id}
-              >
+              <img
+                className="cart-image"
+                src={item.image}
+                alt={item.title}
+              />
 
-                <img
-                  src={item.image}
-                  alt={item.title}
-                />
+              <div className="cart-details">
 
-                <h3>
+                <h2>
                   {item.title}
-                </h3>
+                </h2>
 
-                <p>
+                <p className="cart-price">
                   ₹{item.price}
                 </p>
 
-                <div className="quantity">
+                {/* QUANTITY */}
+
+                <div className="quantity-controls">
 
                   <button
                     onClick={() =>
-                      decreaseQuantity(
-                        item.id
-                      )
+                      decreaseQty(item.id)
                     }
                   >
                     -
                   </button>
 
-                  <span>
+                  <span className="quantity-number">
                     {item.quantity}
                   </span>
 
                   <button
                     onClick={() =>
-                      increaseQuantity(
-                        item.id
-                      )
+                      increaseQty(item.id)
                     }
                   >
                     +
@@ -100,40 +97,54 @@ function Cart() {
 
                 </div>
 
+                {/* REMOVE */}
+
                 <button
                   className="remove-btn"
                   onClick={() =>
-                    removeFromCart(
-                      item.id
-                    )
+                    removeFromCart(item.id)
                   }
                 >
                   Remove
                 </button>
 
               </div>
-            ))}
+
+            </div>
+
+          ))}
+
+          {/* SUMMARY */}
+
+          <div className="cart-summary">
+
+            <h2>
+              Total: ₹{total}
+            </h2>
+
+            <div className="summary-buttons">
+
+              <button
+                className="clear-btn"
+                onClick={clearCart}
+              >
+                Clear Cart
+              </button>
+
+              <button
+                className="checkout-btn"
+                onClick={() =>
+                  navigate("/payment")
+                }
+              >
+                🚀 Proceed To Payment
+              </button>
+
+            </div>
 
           </div>
 
-          <h2 className="total">
-            Total: ₹{totalPrice}
-          </h2>
-
-          <button
-            className="clear-btn"
-            onClick={clearCart}
-          >
-            Clear Cart
-          </button>
-          <Link to="/payment">
-
-          <button className="clear-btn">
-                Proceed To Payment
-           </button>
-
-        </Link>
-        </>
+        </div>
 
       )}
 

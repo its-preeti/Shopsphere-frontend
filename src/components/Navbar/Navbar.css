@@ -5,7 +5,7 @@
 }
 
 body{
-  background:#000;
+  background:#363535;
   font-family:  sans-serif;
 }
 
@@ -26,19 +26,19 @@ body{
 }
 
 .logo img{
-  width:50px;
+  width:30px;
   border-radius:12px;
 }
 
 .logo h1{
   color:white;
-  font-size:50px;
+  font-size:40px;
   font-weight: 500;
 }
 
 .dot{
-  width:14px;
-  height:14px;
+  width:10px;
+  height:10px;
   background:orange;
   border-radius:50%;
 }

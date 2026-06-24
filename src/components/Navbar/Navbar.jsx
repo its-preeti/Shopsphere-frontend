@@ -24,7 +24,7 @@ function Navbar() {
     <nav className="navbar">
 
       <div className="logo">
-        <img src="https://cdn3.vectorstock.com/i/1000x1000/99/92/shopping-bag-icon-logo-design-template-vector-30149992.jpg" alt="logo" />
+        <img src="https://cdn-icons-png.flaticon.com/128/3081/3081559.png" alt="logo" />
       
       
        <h1>Shopsphere</h1>

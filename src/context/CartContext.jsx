@@ -1,68 +1,42 @@
 import {
   createContext,
   useState,
-  useEffect,
 } from "react";
 
 export const CartContext =
-  createContext();
+createContext();
 
-function CartProvider({
-  children,
-}) {
+function CartProvider({ children }) {
 
   const [cartItems, setCartItems] =
-    useState(() => {
-
-      const savedCart =
-        localStorage.getItem("cart");
-
-      return savedCart
-        ? JSON.parse(savedCart)
-        : [];
-    });
-
-  // SAVE LOCALSTORAGE
-
-  useEffect(() => {
-
-    localStorage.setItem(
-      "cart",
-      JSON.stringify(cartItems)
-    );
-
-  }, [cartItems]);
+  useState([]);
 
   // ADD TO CART
 
   const addToCart = (product) => {
 
-    const existingItem =
-      cartItems.find(
-        (item) =>
+    const exist =
+    cartItems.find(
+      (item) => item.id === product.id
+    );
+
+    if (exist) {
+
+      setCartItems(
+
+        cartItems.map((item) =>
+
           item.id === product.id
+
+            ? {
+                ...item,
+                quantity:
+                  item.quantity + 1,
+              }
+
+            : item
+        )
       );
-
-    if (existingItem) {
-
-      const updatedCart =
-        cartItems.map((item) => {
-
-          if (
-            item.id === product.id
-          ) {
-
-            return {
-              ...item,
-              quantity:
-                item.quantity + 1,
-            };
-          }
-
-          return item;
-        });
-
-      setCartItems(updatedCart);
 
     } else {
 
@@ -76,72 +50,66 @@ function CartProvider({
     }
   };
 
+  // REMOVE
+
+  const removeFromCart = (id) => {
+
+    setCartItems(
+
+      cartItems.filter(
+        (item) => item.id !== id
+      )
+    );
+  };
+
   // INCREASE
 
-  const increaseQuantity =
-    (id) => {
+  const increaseQty = (id) => {
 
-      const updatedCart =
-        cartItems.map((item) => {
+    setCartItems(
 
-          if (item.id === id) {
+      cartItems.map((item) =>
 
-            return {
+        item.id === id
+
+          ? {
               ...item,
               quantity:
                 item.quantity + 1,
-            };
-          }
+            }
 
-          return item;
-        });
-
-      setCartItems(updatedCart);
-    };
+          : item
+      )
+    );
+  };
 
   // DECREASE
 
-  const decreaseQuantity =
-    (id) => {
+  const decreaseQty = (id) => {
 
-      const updatedCart =
-        cartItems.map((item) => {
+    setCartItems(
 
-          if (
-            item.id === id &&
-            item.quantity > 1
-          ) {
+      cartItems.map((item) =>
 
-            return {
+        item.id === id
+
+          ? {
               ...item,
               quantity:
-                item.quantity - 1,
-            };
-          }
+                item.quantity > 1
+                  ? item.quantity - 1
+                  : 1,
+            }
 
-          return item;
-        });
-
-      setCartItems(updatedCart);
-    };
-
-  // REMOVE
-
-  const removeFromCart =
-    (id) => {
-
-      const updatedCart =
-        cartItems.filter(
-          (item) =>
-            item.id !== id
-        );
-
-      setCartItems(updatedCart);
-    };
+          : item
+      )
+    );
+  };
 
   // CLEAR CART
 
   const clearCart = () => {
+
     setCartItems([]);
   };
 
@@ -151,9 +119,9 @@ function CartProvider({
       value={{
         cartItems,
         addToCart,
-        increaseQuantity,
-        decreaseQuantity,
         removeFromCart,
+        increaseQty,
+        decreaseQty,
         clearCart,
       }}
     >
