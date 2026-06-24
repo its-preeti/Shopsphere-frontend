@@ -1,0 +1,137 @@
+.hero {
+
+  min-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  color: white;
+
+  padding: 20px;
+}
+
+.hero h1 {
+
+  font-size: 80px;
+
+  margin-bottom: 20px;
+}
+
+.hero p {
+
+  font-size: 1.3rem;
+
+  color: #cfcfcf;
+
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+
+  display: flex;
+
+  gap: 20px;
+}
+
+.hero-buttons button {
+
+  padding: 14px 30px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #ff6b00;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  transition: 0.3s;
+}
+
+.hero-buttons button:hover {
+
+  transform: translateY(-5px);
+}
+
+.outline-btn {
+
+  background: transparent !important;
+
+  border: 2px solid #ff6b00;
+}
+
+/* Categories */
+
+.categories {
+
+  padding: 80px 8%;
+
+  text-align: center;
+}
+
+.categories h2 {
+
+  font-size: 3rem;
+
+  margin-bottom: 40px;
+}
+
+.category-container {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+  gap: 25px;
+}
+
+.category-card {
+
+  padding: 50px 20px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color: white;
+
+  transition: 0.3s;
+}
+
+.category-card:hover {
+
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 8px 20px rgba(255,106,0,0.3);
+}
+
+/* Featured */
+
+.featured {
+
+  padding: 80px 8%;
+}
+
+.featured h2 {
+
+  text-align: center;
+
+  font-size: 3rem;
+
+  margin-bottom: 40px;
+}

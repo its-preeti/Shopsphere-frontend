@@ -1,0 +1,112 @@
+.orders {
+
+  width: 90%;
+
+  margin: auto;
+
+  padding: 80px 0;
+
+  color: white;
+}
+
+.orders h1 {
+
+  text-align: center;
+
+  margin-bottom: 50px;
+
+  font-size: 3rem;
+}
+
+.orders-container {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+  gap: 30px;
+}
+
+/* ORDER CARD */
+
+.order-card {
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+}
+
+.order-card:hover {
+
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 8px 20px rgba(255,106,0,0.3);
+}
+
+.order-card h2 {
+
+  margin-bottom: 15px;
+}
+
+.order-card p {
+
+  margin-bottom: 10px;
+
+  color: #cfcfcf;
+}
+
+/* STATUS */
+
+.status {
+
+  display: inline-block;
+
+  padding: 10px 18px;
+
+  border-radius: 30px;
+
+  margin-top: 15px;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+/* DELIVERED */
+
+.Delivered {
+
+  background: #00c853;
+
+  color: white;
+}
+
+/* SHIPPED */
+
+.Shipped {
+
+  background: #2962ff;
+
+  color: white;
+}
+
+/* PROCESSING */
+
+.Processing {
+
+  background: #ff6b00;
+
+  color: white;
+}

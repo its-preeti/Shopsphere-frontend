@@ -1,0 +1,80 @@
+.success {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.success-box {
+
+  width: 400px;
+
+  padding: 50px;
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+
+  color: white;
+}
+
+.check {
+
+  width: 100px;
+  height: 100px;
+
+  background: #00c853;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+
+  font-size: 50px;
+
+  margin-bottom: 25px;
+}
+
+.success-box h1 {
+
+  margin-bottom: 15px;
+}
+
+.success-box p {
+
+  color: #cfcfcf;
+
+  margin-bottom: 30px;
+}
+
+.success-box button {
+
+  padding: 14px 25px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #ff6b00;
+
+  color: white;
+
+  cursor: pointer;
+}

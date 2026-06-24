@@ -1,0 +1,15 @@
+.compare {
+  width: 90%;
+  margin: auto;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.compare h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.compare table {
+  width: 100%;
+ 
