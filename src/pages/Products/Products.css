@@ -113,3 +113,37 @@
 
   gap: 30px;
 }
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .products{
+
+    width:95%;
+  }
+
+  .products h1{
+
+    font-size:3rem;
+  }
+
+  .advanced-filters{
+
+    flex-direction:column;
+
+    gap:20px;
+  }
+
+  .filter-buttons{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+  }
+
+  .products-grid{
+
+    grid-template-columns:1fr;
+  }
+
+}

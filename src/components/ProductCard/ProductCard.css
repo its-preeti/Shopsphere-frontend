@@ -91,3 +91,11 @@
 
   transform: scale(1.03);
 }
+@media(max-width:768px){
+
+  .product-card img{
+
+    height:320px;
+  }
+
+}
