@@ -265,9 +265,9 @@
 
   .cart-image{
 
-    width:50%;
+    width: 100px;
 
-    height: 25px;
+    height: 50px;
   }
 
   .cart-details h2{
@@ -310,7 +310,7 @@
 
   cursor:pointer;
 
-  transition:0.3s;
+  transition:0.8s;
 }
 
 .clear-btn:hover{

@@ -11,11 +11,11 @@ const products = [
     title: "Men's Shirt",
     price: 1999,
     image:
-      "https://i.pinimg.com/736x/39/87/a8/3987a89c70de9b1736a5364162ca108f.jpg",
+      "https://wallpapers.com/images/featured-full/mens-fashion-png-nou41acklwg9b65n.png",
     description:
       "Stylish men's jacket perfect for winter and casual wear.",
   },
-  {
+    {
     id: 2,
     title: "Women's Dress",
     price: 1499,
