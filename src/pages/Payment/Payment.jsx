@@ -11,14 +11,14 @@ import "./Payment.css";
 function Payment() {
 
   const [loading, setLoading] =
-    useState(false);
+  useState(false);
 
   const [paymentMethod,
-    setPaymentMethod] =
-    useState("card");
+  setPaymentMethod] =
+  useState("card");
 
   const navigate =
-    useNavigate();
+  useNavigate();
 
   // PAYMENT
 
@@ -26,13 +26,67 @@ function Payment() {
 
     setLoading(true);
 
-    setTimeout(() => {
+    const options = {
 
-      setLoading(false);
+      key: "rzp_test_T5XcZKRMPuHhZd",
 
-      navigate("/success");
+      amount: 149900,
 
-    }, 3000);
+      currency: "INR",
+
+      name: "ShopSphere",
+
+      description:
+        "Order Payment",
+
+      image:
+        "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
+
+      handler: function () {
+
+        setLoading(false);
+
+        alert(
+          "Payment Successful ✅"
+        );
+
+        navigate("/success");
+      },
+
+      prefill: {
+
+        name: "Customer",
+
+        email:
+          "customer@gmail.com",
+
+        contact:
+          "9999999999",
+      },
+
+      theme: {
+
+        color: "#ff6600",
+      },
+    };
+
+    const razorpay =
+      new window.Razorpay(options);
+
+    razorpay.open();
+
+    razorpay.on(
+      "payment.failed",
+
+      function () {
+
+        setLoading(false);
+
+        alert(
+          "Payment Failed ❌"
+        );
+      }
+    );
   };
 
   return (
@@ -45,11 +99,9 @@ function Payment() {
           💳 Payment
         </h1>
 
-        {/* PAYMENT METHODS */}
+        {/* METHODS */}
 
         <div className="payment-methods">
-
-          {/* CARD */}
 
           <button
             className={
@@ -65,8 +117,6 @@ function Payment() {
             Card
           </button>
 
-          {/* UPI */}
-
           <button
             className={
               paymentMethod === "upi"
@@ -80,8 +130,6 @@ function Payment() {
           >
             UPI
           </button>
-
-          {/* QR CODE */}
 
           <button
             className={
@@ -99,10 +147,10 @@ function Payment() {
 
         </div>
 
-        {/* CARD PAYMENT */}
+        {/* CARD */}
 
         {paymentMethod ===
-          "card" && (
+        "card" && (
 
           <>
 
@@ -134,10 +182,10 @@ function Payment() {
 
         )}
 
-        {/* UPI PAYMENT */}
+        {/* UPI */}
 
         {paymentMethod ===
-          "upi" && (
+        "upi" && (
 
           <>
 
@@ -166,15 +214,16 @@ function Payment() {
 
         )}
 
-        {/* QR PAYMENT */}
+        {/* QR */}
 
         {paymentMethod ===
-          "qr" && (
+        "qr" && (
 
           <div className="qr-payment">
 
             <img
               src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ShopSpherePayment"
+
               alt="QR Code"
             />
 
@@ -183,17 +232,19 @@ function Payment() {
             </h3>
 
             <p>
-              Use any UPI app to scan
-              this QR code.
+              Use any UPI app
+              to scan this QR.
             </p>
 
           </div>
 
         )}
 
-        {/* PAY BUTTON */}
+        {/* BUTTON */}
 
         <button
+          className="pay-btn"
+
           onClick={handlePayment}
         >
 
