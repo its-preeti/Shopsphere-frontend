@@ -1,82 +1,117 @@
 import "./Navbar.css";
-
 import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
 
-import { useContext } from "react";
+import {
+  FiMenu,
+  FiX,
+  FiHome,
+  FiShoppingBag,
+  FiShoppingCart,
+  FiHeart,
+  FiUser,
+  FiBarChart2,
+  FiPackage,
+} from "react-icons/fi";
 
-import { CartContext }
-from "../../context/CartContext";
+import { CartContext } from "../../context/CartContext";
+import { WishlistContext } from "../../context/WishlistContext";
 
-import { WishlistContext }
-from "../../context/WishlistContext";
-
-import ThemeToggle
-from "../ThemeToggle/ThemeToggle";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 function Navbar() {
-
   const { cartItems } = useContext(CartContext);
-
   const { wishlistItems } = useContext(WishlistContext);
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-
     <nav className="navbar">
-
+      
+      {/* Logo */}
       <div className="logo">
-        <img src="https://cdn-icons-png.flaticon.com/128/3081/3081559.png" alt="logo" />
-      
-      
-       <h1>Shopsphere</h1>
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/3081/3081559.png"
+          alt="logo"
+        />
 
-       <span className="dot"></span>
-     </div>
-       
-      <ul className="nav-links">
-      
+        <h1>
+          <span>ShopSphere</span>
+        </h1>
+
+        <div className="dot"></div>
+      </div>
+
+      {/* Desktop Links */}
+      <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
+        
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <FiHome />
+            Home
+          </Link>
         </li>
 
         <li>
           <Link to="/products">
+            <FiShoppingBag />
             Products
           </Link>
         </li>
 
         <li>
           <Link to="/cart">
-            Cart ({cartItems.length})
+            <FiShoppingCart />
+            Cart
+            <span className="badge">
+              {cartItems.length}
+            </span>
           </Link>
         </li>
 
         <li>
           <Link to="/wishlist">
-            Wishlist ({wishlistItems.length})
+            <FiHeart />
+            Wishlist
+            <span className="badge">
+              {wishlistItems.length}
+            </span>
           </Link>
         </li>
 
         <li>
-          <Link to="/auth">
-             Account
-        </Link>
-       </li>
-
-         <Link to="/analytics">
+          <Link to="/analytics">
+            <FiBarChart2 />
             Analytics
           </Link>
+        </li>
+
         <li>
           <Link to="/orders">
-             Orders
+            <FiPackage />
+            Orders
           </Link>
-      </li>
+        </li>
+
+        <li>
+          <Link to="/auth" className="login-btn">
+            <FiUser />
+            Account
+          </Link>
+        </li>
 
         <li>
           <ThemeToggle />
         </li>
-
       </ul>
 
+      {/* Mobile Menu Button */}
+      <div
+        className="menu-icon"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? <FiX /> : <FiMenu />}
+      </div>
     </nav>
   );
 }
