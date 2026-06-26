@@ -4,6 +4,7 @@ import { useContext } from "react";
 
 
 import Navbar from "./components/Navbar/Navbar";
+import Footer from"./components/Footer/Footer";
 
 import Home from "./pages/Home/Home";
 import Products from "./pages/Products/Products";
@@ -90,11 +91,16 @@ function App() {
           path="/success"
          element={<Success />}
        />
+       <Route
+          path="/footer"
+         element={<Footer />}
+       />
         <Route
           path="/cart"
           element={<Cart />}
         />
       </Routes>
+
     </div>
   );
 }
