@@ -4,7 +4,7 @@
 
 .cart-title {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 30px;
 }
 
@@ -19,8 +19,8 @@
 }
 
 .cart-card img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
 }
 
@@ -38,12 +38,12 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .quantity-controls button {
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   border: none;
   border-radius: 12px;
   background: #ff7a00;
@@ -67,6 +67,7 @@
   font-size: 1.2rem;
   font-weight: bold;
 }
+
 @media (max-width: 768px) {
   .cart-card {
     flex-direction: row;
@@ -80,4 +81,27 @@
     width: 100px;
     height: 100px;
   }
+}
+.remove-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #3a0d0d;
+  color: #ff4d4d;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.clear-cart-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px;
+  border: none;
+  border-radius: 15px;
+  background: #242323 !important;
+  color: rgb(232, 13, 13) !important;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
 }

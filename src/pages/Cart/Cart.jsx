@@ -125,7 +125,7 @@ function Cart() {
             <div className="summary-buttons">
 
               <button
-                className="clear-btn"
+                className="clear-cart-btn"
                 onClick={clearCart}
               >
                 Clear Cart

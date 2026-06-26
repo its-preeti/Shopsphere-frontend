@@ -32,6 +32,7 @@
 
 .logo img {
   width: 42px;
+  box-shadow: 0 0 10px orange;
 }
 
 .logo h1 {
@@ -42,6 +43,7 @@
 
 .logo span {
   color: orange;
+  
 }
 
 .dot {
