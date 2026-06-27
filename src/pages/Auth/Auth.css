@@ -1,71 +1,128 @@
-.auth {
-  height: 100vh;
-
+.auth-page {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   background:
-    linear-gradient(
-      135deg,
-      #363432,
-      #272322
-    );
+    radial-gradient(circle at top left, #ff7a00 0%, transparent 25%),
+    radial-gradient(circle at bottom right, #ff5100 0%, transparent 25%),
+    #0f0f0f;
+
+  padding: 20px;
 }
 
+/* CARD */
 .auth-box {
-  width: 350px;
+  width: 100%;
+  max-width: 400px;
 
-  padding: 40px;
+  padding: 40px 35px;
 
-  border-radius: 12px;
+  border-radius: 24px;
+
+  background: rgba(30, 30, 30, 0.7);
+
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255,255,255,0.08);
 
   box-shadow:
-    0 5px 20px rgba(0,0,0,0.2);
+    0 10px 40px rgba(0,0,0,0.5),
+    0 0 20px rgba(255,122,0,0.15);
 
   text-align: center;
 }
 
+/* TITLE */
 .auth-box h1 {
-  margin-bottom: 25px;
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  font-weight: 700;
 }
 
+/* INPUTS */
 .auth-box input {
   width: 100%;
 
-  padding: 12px;
+  padding: 14px 16px;
 
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 
-  border-radius: 6px;
-  border: 1px solid #f56f16;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,122,0,0.5);
+
+  background: rgba(255,255,255,0.06);
+
+  color: white;
+
+  font-size: 1rem;
+
+  outline: none;
+
+  transition: 0.3s;
 }
 
-.auth-box button {
+.auth-box input::placeholder {
+  color: #bbb;
+}
+
+.auth-box input:focus {
+  border-color: #ff7a00;
+
+  box-shadow:
+    0 0 12px rgba(255,122,0,0.5);
+}
+
+/* BUTTON */
+.auth-btn {
   width: 100%;
 
-  padding: 12px;
+  padding: 14px;
 
   border: none;
 
-  background: #070707;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #ff7a00,
+    #ff5100
+  );
+
   color: white;
 
-  border-radius: 6px;
+  font-size: 1rem;
+
+  font-weight: 600;
 
   cursor: pointer;
 
-  font-size: 16px;
+  transition: 0.3s;
 }
 
-.auth-box p {
-  margin-top: 20px;
+.auth-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(255,122,0,0.4);
 }
 
-.auth-box span {
-  color: #1d1c1b;
+/* TEXT */
+.auth-text {
+  margin-top: 18px;
+  color: #bbb;
+  font-size: 0.95rem;
+}
 
+.auth-text span {
+  color: #ff7a00;
+  font-weight: 600;
   cursor: pointer;
+}
 
-  font-weight: bold;
+.auth-text span:hover {
+  text-decoration: underline;
 }

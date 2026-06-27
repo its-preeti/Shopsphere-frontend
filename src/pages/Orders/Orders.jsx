@@ -6,7 +6,7 @@ function Orders() {
 
     {
       id: 1,
-      product: "iPhone 15",
+      product: "Women Dress",
       price: 79999,
       status: "Delivered",
       date: "12 July 2025",
@@ -15,7 +15,7 @@ function Orders() {
     {
       id: 2,
       product: "Nike Shoes",
-      price: 4999,
+      price: 2499,
       status: "Shipped",
       date: "14 July 2025",
     },
@@ -23,7 +23,7 @@ function Orders() {
     {
       id: 3,
       product: "Smart Watch",
-      price: 2999,
+      price: 3999,
       status: "Processing",
       date: "16 July 2025",
     },

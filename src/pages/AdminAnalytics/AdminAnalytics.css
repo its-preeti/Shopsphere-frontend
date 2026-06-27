@@ -1,6 +1,6 @@
 .analytics {
 
-  width: 90%;
+  width: 80%;
 
   margin: auto;
 
@@ -15,7 +15,7 @@
 
   margin-bottom: 50px;
 
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .analytics-container {
@@ -46,7 +46,7 @@
 
   backdrop-filter: blur(10px);
 
-  transition: 0.3s;
+  transition: 0.8s;
 }
 
 .analytics-card:hover {
@@ -59,7 +59,7 @@
 
 .icon {
 
-  font-size: 50px;
+  font-size: 40px;
 
   margin-bottom: 20px;
 }

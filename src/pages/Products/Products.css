@@ -33,7 +33,7 @@
   margin-bottom: 20px;
 
   background:
-    rgba(255,255,255,0.05);
+    #000000;
 
   color: white;
 }
@@ -80,20 +80,28 @@
 
 .filter-buttons {
 
+  
+  width: 100%;
+
   display: flex;
 
-  gap: 15px;
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 25px;
 
   flex-wrap: wrap;
 }
 
+
 .filter-buttons button {
 
-  padding: 12px 20px;
+  padding: 10px 15px;
 
   border: none;
 
-  border-radius: 10px;
+  border-radius: 5px;
 
   background: #ff6b00;
 

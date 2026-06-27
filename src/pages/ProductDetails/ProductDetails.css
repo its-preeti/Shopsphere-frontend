@@ -1,6 +1,6 @@
 .product-details {
   padding: 50px;
-  background: #0f0f11;
+  background:#121212;
   color: white;
 }
 
@@ -197,7 +197,7 @@
 
 .review-form textarea {
   resize: none;
-  height: 120px;
+  height: 80px;
 }
 
 /* BUTTON */

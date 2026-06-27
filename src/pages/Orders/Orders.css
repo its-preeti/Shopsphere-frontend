@@ -1,6 +1,6 @@
 .orders {
 
-  width: 90%;
+  width: 80%;
 
   margin: auto;
 
@@ -44,7 +44,7 @@
 
   backdrop-filter: blur(10px);
 
-  transition: 0.3s;
+  transition: 0.8s;
 }
 
 .order-card:hover {

@@ -3,7 +3,17 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer className="footer">
-      <p>© 2026 ShopSphere. All Rights Reserved.</p>
+
+      <h2>ShopSphere</h2>
+
+      <p>Premium E-Commerce Platform.</p>
+
+      <div className="footer-links">
+        <a href="/">About Us</a>
+        <a href="/">Return Policy</a>
+        <a href="/">Disclaimer</a>
+      </div>
+
     </footer>
   );
 }

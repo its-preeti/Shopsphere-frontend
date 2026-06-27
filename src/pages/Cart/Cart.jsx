@@ -35,7 +35,7 @@ function Cart() {
     <div className="cart-page">
 
       <h1 className="cart-title">
-        Shopping Cart
+        Shopping Cart 🛍️
       </h1>
 
       {cartItems.length === 0 ? (

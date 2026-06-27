@@ -81,7 +81,7 @@ function App() {
           <Route
              path="/analytics"
             element={<AdminAnalytics />}
-/>
+         />
 
         <Route
           path="/payment"
@@ -91,17 +91,16 @@ function App() {
           path="/success"
          element={<Success />}
        />
-       <Route
-          path="/footer"
-         element={<Footer />}
-       />
+       
         <Route
           path="/cart"
           element={<Cart />}
         />
       </Routes>
-
+       
+      <Footer />
     </div>
+    
   );
 }
 

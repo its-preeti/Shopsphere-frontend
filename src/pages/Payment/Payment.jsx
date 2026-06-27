@@ -1,34 +1,56 @@
 import {
   useState,
+  useContext,
 } from "react";
 
 import {
   useNavigate,
 } from "react-router-dom";
 
+import {
+  AuthContext,
+} from "../../context/AuthContext";
+
 import "./Payment.css";
 
 function Payment() {
 
+  const { user } =
+    useContext(AuthContext);
+
   const [loading, setLoading] =
-  useState(false);
+    useState(false);
 
   const [paymentMethod,
-  setPaymentMethod] =
-  useState("card");
+    setPaymentMethod] =
+    useState("card");
 
   const navigate =
-  useNavigate();
+    useNavigate();
 
   // PAYMENT
 
   const handlePayment = () => {
 
+    // LOGIN CHECK
+
+    if (!user) {
+
+      alert(
+        "Please Login First 🔒"
+      );
+
+      navigate("/auth");
+
+      return;
+    }
+
     setLoading(true);
 
     const options = {
 
-      key: "rzp_test_T5XcZKRMPuHhZd",
+      key:
+        "rzp_test_T5XcZKRMPuHhZd",
 
       amount: 149900,
 
@@ -106,8 +128,8 @@ function Payment() {
           <button
             className={
               paymentMethod === "card"
-              ? "active-method"
-              : ""
+                ? "active-method"
+                : ""
             }
 
             onClick={() =>
@@ -120,8 +142,8 @@ function Payment() {
           <button
             className={
               paymentMethod === "upi"
-              ? "active-method"
-              : ""
+                ? "active-method"
+                : ""
             }
 
             onClick={() =>
@@ -134,8 +156,8 @@ function Payment() {
           <button
             className={
               paymentMethod === "qr"
-              ? "active-method"
-              : ""
+                ? "active-method"
+                : ""
             }
 
             onClick={() =>
@@ -150,95 +172,95 @@ function Payment() {
         {/* CARD */}
 
         {paymentMethod ===
-        "card" && (
+          "card" && (
 
-          <>
-
-            <input
-              type="text"
-              placeholder="Card Holder Name"
-            />
-
-            <input
-              type="text"
-              placeholder="Card Number"
-            />
-
-            <div className="payment-row">
+            <>
 
               <input
                 type="text"
-                placeholder="MM/YY"
+                placeholder="Card Holder Name"
               />
 
               <input
-                type="password"
-                placeholder="CVV"
+                type="text"
+                placeholder="Card Number"
               />
 
-            </div>
+              <div className="payment-row">
 
-          </>
+                <input
+                  type="text"
+                  placeholder="MM/YY"
+                />
 
-        )}
+                <input
+                  type="password"
+                  placeholder="CVV"
+                />
+
+              </div>
+
+            </>
+
+          )}
 
         {/* UPI */}
 
         {paymentMethod ===
-        "upi" && (
+          "upi" && (
 
-          <>
+            <>
 
-            <div className="upi-apps">
+              <div className="upi-apps">
 
-              <div className="upi-card">
-                Google Pay
+                <div className="upi-card">
+                  Google Pay
+                </div>
+
+                <div className="upi-card">
+                  PhonePe
+                </div>
+
+                <div className="upi-card">
+                  Paytm
+                </div>
+
               </div>
 
-              <div className="upi-card">
-                PhonePe
-              </div>
+              <input
+                type="text"
+                placeholder="Enter UPI ID"
+              />
 
-              <div className="upi-card">
-                Paytm
-              </div>
+            </>
 
-            </div>
-
-            <input
-              type="text"
-              placeholder="Enter UPI ID"
-            />
-
-          </>
-
-        )}
+          )}
 
         {/* QR */}
 
         {paymentMethod ===
-        "qr" && (
+          "qr" && (
 
-          <div className="qr-payment">
+            <div className="qr-payment">
 
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ShopSpherePayment"
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ShopSpherePayment"
 
-              alt="QR Code"
-            />
+                alt="QR Code"
+              />
 
-            <h3>
-              Scan & Pay
-            </h3>
+              <h3>
+                Scan & Pay
+              </h3>
 
-            <p>
-              Use any UPI app
-              to scan this QR.
-            </p>
+              <p>
+                Use any UPI app
+                to scan this QR.
+              </p>
 
-          </div>
+            </div>
 
-        )}
+          )}
 
         {/* BUTTON */}
 

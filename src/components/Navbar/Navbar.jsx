@@ -31,7 +31,7 @@ function Navbar() {
       {/* Logo */}
       <div className="logo">
         <img
-          src="https://cdn-icons-png.flaticon.com/128/3081/3081559.png"
+          src="https://cdn-icons-png.flaticon.com/128/10856/10856545.png"
           alt="logo"
         />
 

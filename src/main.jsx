@@ -16,6 +16,9 @@ from "./context/CartContext";
 import WishlistProvider
 from "./context/WishlistContext";
 
+import AuthProvider
+from "./context/AuthContext";
+
 ReactDOM.createRoot(
   document.getElementById("root")
 ).render(
@@ -27,8 +30,13 @@ ReactDOM.createRoot(
       <CartProvider>
 
         <WishlistProvider>
+          
+           <AuthProvider>
 
-          <App />
+           <App />
+
+       </AuthProvider>
+         
 
         </WishlistProvider>
 

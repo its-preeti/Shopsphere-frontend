@@ -9,7 +9,7 @@ function Auth() {
 
   return (
 
-    <div className="auth">
+    <div className="auth-page">
 
       <div className="auth-box">
 
@@ -38,13 +38,15 @@ function Auth() {
           placeholder="Password"
         />
 
-        <button>
+        <button className="auth-btn">
+
           {isLogin
             ? "Login"
             : "Register"}
+
         </button>
 
-        <p>
+        <p className="auth-text">
 
           {isLogin
             ? "Don't have account?"
@@ -67,6 +69,7 @@ function Auth() {
       </div>
 
     </div>
+
   );
 }
 
