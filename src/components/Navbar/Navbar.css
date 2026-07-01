@@ -87,6 +87,35 @@
   color: white;
 }
 
+.login-btn {
+
+display: flex;
+
+align-items: center;
+
+gap: 6px;
+
+background: transparent;
+
+border: none;
+
+color: white;
+
+font-size: 15px;
+
+cursor: pointer;
+
+text-decoration: none;
+
+font-family: inherit;
+}
+
+.login-btn:hover {
+
+color: #ff6600;
+}
+
+
 /* Badge */
 
 .badge {

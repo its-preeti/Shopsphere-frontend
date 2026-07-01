@@ -2,6 +2,7 @@ import "./App.css";
 
 import { useContext } from "react";
 
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from"./components/Footer/Footer";

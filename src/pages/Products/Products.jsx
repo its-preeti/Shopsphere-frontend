@@ -9,7 +9,7 @@ const productsData = [
     category: "Fashion",
     price: 1999,
     image:
-      "https://wallpapers.com/images/featured-full/mens-fashion-png-nou41acklwg9b65n.png",
+      "https://i.pinimg.com/originals/69/5b/32/695b3298ac18fd0da27cf727b7d8cf4a.jpg",
   },
   {
     id: 2,

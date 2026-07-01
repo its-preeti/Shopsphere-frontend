@@ -37,3 +37,22 @@ body::before {
 
   z-index: -1;
 }
+
+.light-theme {
+
+background: white;
+
+color: black;
+
+min-height: 100vh;
+}
+
+.dark-theme {
+
+background: #111;
+
+color: white;
+
+min-height: 100vh;
+}
+

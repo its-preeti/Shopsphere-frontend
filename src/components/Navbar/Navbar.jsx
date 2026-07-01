@@ -82,7 +82,7 @@ function Navbar() {
         <li>
           <Link to="/analytics">
             <FiBarChart2 />
-            Analytics
+            Admin
           </Link>
         </li>
 

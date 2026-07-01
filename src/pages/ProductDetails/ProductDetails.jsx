@@ -20,10 +20,10 @@ const products = [
     price: 1999,
 
     image:
-      "https://wallpapers.com/images/featured-full/mens-fashion-png-nou41acklwg9b65n.png",
+      "https://i.pinimg.com/originals/69/5b/32/695b3298ac18fd0da27cf727b7d8cf4a.jpg",
 
     description:
-      "Stylish men's jacket perfect for winter and casual wear.",
+      "Stylish men's Shirt perfect for function and casual wear.",
   },
 
   {

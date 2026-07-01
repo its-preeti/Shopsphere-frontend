@@ -1,301 +1,337 @@
+
 import {
-  useState,
-  useContext,
+useState,
 } from "react";
 
 import {
-  useNavigate,
+useNavigate,
 } from "react-router-dom";
 
 import {
-  AuthContext,
+useAuth,
 } from "../../context/AuthContext";
 
 import "./Payment.css";
 
 function Payment() {
 
-  const { user } =
-    useContext(AuthContext);
+const { user } = useAuth();
 
-  const [loading, setLoading] =
-    useState(false);
+const [loading, setLoading] =
+useState(false);
 
-  const [paymentMethod,
-    setPaymentMethod] =
-    useState("card");
+const [paymentMethod,
+setPaymentMethod] =
+useState("card");
 
-  const navigate =
-    useNavigate();
+const navigate =
+useNavigate();
 
-  // PAYMENT
+// PAYMENT FUNCTION
 
-  const handlePayment = () => {
+const handlePayment = () => {
 
-    // LOGIN CHECK
+// LOGIN CHECK
 
-    if (!user) {
+if (!user) {
 
-      alert(
-        "Please Login First 🔒"
-      );
+alert(
+"Please Login First 🔒"
+);
 
-      navigate("/auth");
+navigate("/auth");
 
-      return;
-    }
+return;
 
-    setLoading(true);
+}
 
-    const options = {
+setLoading(true);
 
-      key:
-        "rzp_test_T5XcZKRMPuHhZd",
+const options = {
 
-      amount: 149900,
+key:
+"rzp_test_T5XcZKRMPuHhZd",
 
-      currency: "INR",
+amount: 149900,
 
-      name: "ShopSphere",
+currency: "INR",
 
-      description:
-        "Order Payment",
+name: "ShopSphere",
 
-      image:
-        "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
+description:
+"Order Payment",
 
-      handler: function () {
+image:
+"https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
 
-        setLoading(false);
+handler: function () {
 
-        alert(
-          "Payment Successful ✅"
-        );
+setLoading(false);
 
-        navigate("/success");
-      },
+alert(
+"Payment Successful ✅"
+);
 
-      prefill: {
+navigate("/success");
 
-        name: "Customer",
+},
 
-        email:
-          "customer@gmail.com",
+prefill: {
 
-        contact:
-          "9999999999",
-      },
+name:
+user?.name || "Customer",
 
-      theme: {
+email:
+user?.email || "customer@gmail.com",
 
-        color: "#ff6600",
-      },
-    };
+contact:
+"9999999999",
 
-    const razorpay =
-      new window.Razorpay(options);
+},
 
-    razorpay.open();
+theme: {
 
-    razorpay.on(
-      "payment.failed",
+color: "#ff6600",
 
-      function () {
+},
 
-        setLoading(false);
+};
 
-        alert(
-          "Payment Failed ❌"
-        );
-      }
-    );
-  };
+const razorpay =
+new window.Razorpay(
+options
+);
 
-  return (
+razorpay.open();
 
-    <div className="payment">
+razorpay.on(
 
-      <div className="payment-box">
+"payment.failed",
 
-        <h1>
-          💳 Payment
-        </h1>
+function () {
 
-        {/* METHODS */}
+setLoading(false);
 
-        <div className="payment-methods">
+alert(
+"Payment Failed ❌"
+);
 
-          <button
-            className={
-              paymentMethod === "card"
-                ? "active-method"
-                : ""
-            }
+}
 
-            onClick={() =>
-              setPaymentMethod("card")
-            }
-          >
-            Card
-          </button>
+);
 
-          <button
-            className={
-              paymentMethod === "upi"
-                ? "active-method"
-                : ""
-            }
+};
 
-            onClick={() =>
-              setPaymentMethod("upi")
-            }
-          >
-            UPI
-          </button>
+return (
 
-          <button
-            className={
-              paymentMethod === "qr"
-                ? "active-method"
-                : ""
-            }
+<div className="payment">
 
-            onClick={() =>
-              setPaymentMethod("qr")
-            }
-          >
-            QR Code
-          </button>
+<div className="payment-box">
 
-        </div>
+<h1>
+💳 Payment
+</h1>
 
-        {/* CARD */}
+{/* PAYMENT METHODS */}
 
-        {paymentMethod ===
-          "card" && (
+<div className="payment-methods">
 
-            <>
+<button
 
-              <input
-                type="text"
-                placeholder="Card Holder Name"
-              />
+className={
+paymentMethod === "card"
+? "active-method"
+: ""
+}
 
-              <input
-                type="text"
-                placeholder="Card Number"
-              />
+onClick={() =>
+setPaymentMethod(
+"card"
+)
+}
 
-              <div className="payment-row">
+>
 
-                <input
-                  type="text"
-                  placeholder="MM/YY"
-                />
+Card
 
-                <input
-                  type="password"
-                  placeholder="CVV"
-                />
+</button>
 
-              </div>
+<button
 
-            </>
+className={
+paymentMethod === "upi"
+? "active-method"
+: ""
+}
 
-          )}
+onClick={() =>
+setPaymentMethod(
+"upi"
+)
+}
 
-        {/* UPI */}
+>
 
-        {paymentMethod ===
-          "upi" && (
+UPI
 
-            <>
+</button>
 
-              <div className="upi-apps">
+<button
 
-                <div className="upi-card">
-                  Google Pay
-                </div>
+className={
+paymentMethod === "qr"
+? "active-method"
+: ""
+}
 
-                <div className="upi-card">
-                  PhonePe
-                </div>
+onClick={() =>
+setPaymentMethod(
+"qr"
+)
+}
 
-                <div className="upi-card">
-                  Paytm
-                </div>
+>
 
-              </div>
+QR Code
 
-              <input
-                type="text"
-                placeholder="Enter UPI ID"
-              />
+</button>
 
-            </>
+</div>
 
-          )}
+{/* CARD PAYMENT */}
 
-        {/* QR */}
+{paymentMethod ===
+"card" && (
 
-        {paymentMethod ===
-          "qr" && (
+<>
 
-            <div className="qr-payment">
+<input
+type="text"
+placeholder="Card Holder Name"
+/>
 
-              <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ShopSpherePayment"
+<input
+type="text"
+placeholder="Card Number"
+/>
 
-                alt="QR Code"
-              />
+<div className="payment-row">
 
-              <h3>
-                Scan & Pay
-              </h3>
+<input
+type="text"
+placeholder="MM/YY"
+/>
 
-              <p>
-                Use any UPI app
-                to scan this QR.
-              </p>
+<input
+type="password"
+placeholder="CVV"
+/>
 
-            </div>
+</div>
 
-          )}
+</>
 
-        {/* BUTTON */}
+)}
 
-        <button
-          className="pay-btn"
+{/* UPI PAYMENT */}
 
-          onClick={handlePayment}
-        >
+{paymentMethod ===
+"upi" && (
 
-          {loading
-            ? "Processing..."
-            : "Pay Now"}
+<>
 
-        </button>
+<div className="upi-apps">
 
-        {/* LOADER */}
+<div className="upi-card">
+Google Pay
+</div>
 
-        {loading && (
+<div className="upi-card">
+PhonePe
+</div>
 
-          <div className="loader">
+<div className="upi-card">
+Paytm
+</div>
 
-            <div className="spinner"></div>
+</div>
 
-            <p>
-              Processing Payment...
-            </p>
+<input
+type="text"
+placeholder="Enter UPI ID"
+/>
 
-          </div>
+</>
 
-        )}
+)}
 
-      </div>
+{/* QR PAYMENT */}
 
-    </div>
-  );
+{paymentMethod ===
+"qr" && (
+
+<div className="qr-payment">
+
+<img
+
+src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ShopSpherePayment"
+
+alt="QR Code"
+
+/>
+
+<h3>
+Scan & Pay
+</h3>
+
+<p>
+Use any UPI app
+to scan this QR.
+</p>
+
+</div>
+
+)}
+
+{/* PAY BUTTON */}
+
+<button
+
+className="pay-btn"
+
+onClick={handlePayment}
+
+>
+
+{loading
+? "Processing..."
+: "Pay Now"}
+
+</button>
+
+{/* LOADER */}
+
+{loading && (
+
+<div className="loader">
+
+<div className="spinner"></div>
+
+<p>
+Processing Payment...
+</p>
+
+</div>
+
+)}
+
+</div>
+
+</div>
+
+);
+
 }
 
 export default Payment;
+
