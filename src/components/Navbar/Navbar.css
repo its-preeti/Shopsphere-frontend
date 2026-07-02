@@ -177,7 +177,7 @@
   }
 }
 body{
-  overflow: hidden;
+overflow-x: hidden;
 }
 
 @media (max-width: 600px) {
